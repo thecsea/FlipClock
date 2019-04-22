@@ -117,7 +117,7 @@
 				var active = el.querySelector('.'+this.classes.active);
 				active.classList.remove(this.classes.active);
 				active.classList.add(this.classes.before);
-				before.querySelectorAll('inn').forEach(function(v){
+				before.querySelectorAll('.inn').forEach(function(v){
 					v.innerHTML = _this.digit;
 				});
 				before.classList.add(this.classes.active);
