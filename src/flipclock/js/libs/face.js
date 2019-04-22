@@ -222,7 +222,8 @@
 		flip: function(time, doNotAddPlayClass) {
 			var t = this;
 
-			$.each(time, function(i, digit) {
+			for (var i in time){
+				var digit = time[i];
 				var list = t.lists[i];
 
 				if(list) {
@@ -235,7 +236,7 @@
 				else {
 					t.addDigit(digit);
 				}
-			});
+			};
 		}
 					
 	});

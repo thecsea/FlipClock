@@ -110,14 +110,17 @@
 			}
 
 			if(this.digit != this.lastDigit) {
-				var $delete = this.$el.find('.'+this.classes.before).removeClass(this.classes.before);
-
-				this.$el.find('.'+this.classes.active).removeClass(this.classes.active)
-													  .addClass(this.classes.before);
-
-				this.appendListItem(this.classes.active, this.digit);
-
-				$delete.remove();
+				var el = this.$el[0];
+				var _this = this;
+				var before = el.querySelector('.'+this.classes.before);
+				before.classList.remove(this.classes.before);
+				var active = el.querySelector('.'+this.classes.active);
+				active.classList.remove(this.classes.active);
+				active.classList.add(this.classes.before);
+				before.querySelectorAll('inn').forEach(function(v){
+					v.innerHTML = _this.digit;
+				});
+				before.classList.add(this.classes.active);
 
 				this.lastDigit = this.digit;
 			}	
@@ -128,7 +131,7 @@
 		 */
 		 		
 		play: function() {
-			this.$el.addClass(this.factory.classes.play);
+			this.$el[0].classList.add(this.factory.classes.play);
 		},
 		
 		/**
@@ -169,9 +172,23 @@
 		 */
 
 		appendListItem: function(css, value) {
-			var html = this.createListItem(css, value);
+			var html = [
+				'<a href="#">',
+				'<div class="up">',
+				'<div class="shadow"></div>',
+				'<div class="inn">'+(value ? value : '')+'</div>',
+				'</div>',
+				'<div class="down">',
+				'<div class="shadow"></div>',
+				'<div class="inn">'+(value ? value : '')+'</div>',
+				'</div>',
+				'</a>',
+			].join('');
+			var elementToAdd = document.createElement('li')
+			if(css) elementToAdd.setAttribute('class', css)
+			elementToAdd.innerHTML = html
 
-			this.$el.append(html);
+			this.$el[0].append(elementToAdd);
 		},
 
 		/**
