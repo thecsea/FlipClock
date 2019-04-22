@@ -147,8 +147,6 @@ Base = Base.extend({
 /*jshint smarttabs:true */
 
 var FlipClock;
-window.FlipClock = FlipClock
-module.exports = FlipClock
 	
 /**
  * FlipClock.js
@@ -178,6 +176,8 @@ module.exports = FlipClock
 
 		return new FlipClock.Factory(obj, digit, options);
 	};
+	window.FlipClock = FlipClock
+	module.exports = FlipClock
 
 	/**
 	 * The global FlipClock.Lang object
