@@ -147,6 +147,8 @@ Base = Base.extend({
 /*jshint smarttabs:true */
 
 var FlipClock;
+window.FlipClock = FlipClock
+module.exports = FlipClock
 	
 /**
  * FlipClock.js
@@ -197,13 +199,13 @@ var FlipClock;
 		 * Build Date
 		 */
 		 
-		buildDate: '2014-10-06',
+		buildDate: '2014-12-12',
 		
 		/**
 		 * Version
 		 */
 		 
-		version: '0.7.5',
+		version: '0.7.7',
 		
 		/**
 		 * Sets the default options
@@ -447,7 +449,7 @@ var FlipClock;
 
 		reset: function() {
 			this.factory.time = new FlipClock.Time(
-				this.factor, 
+				this.factory, 
 				this.factory.original ? Math.round(this.factory.original) : 0,
 				{
 					minimumDigits: this.factory.minimumDigits
@@ -2490,7 +2492,7 @@ var FlipClock;
 		
 		'years'   : 'A&#241;os',
 		'months'  : 'Meses',
-		'days'    : 'D&#237;as',
+		'days'    : 'D&#205;as',
 		'hours'   : 'Horas',
 		'minutes' : 'Minutos',
 		'seconds' : 'Segundo'	

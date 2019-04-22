@@ -1,6 +1,8 @@
 /*jshint smarttabs:true */
 
 var FlipClock;
+window.FlipClock = FlipClock
+module.exports = FlipClock
 	
 /**
  * FlipClock.js
