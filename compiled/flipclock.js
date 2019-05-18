@@ -1057,10 +1057,9 @@ var FlipClock;
 				var active = el.querySelector('.'+this.classes.active);
 				active.classList.remove(this.classes.active);
 				active.classList.add(this.classes.before);
-				var inns = before.querySelectorAll('.inn')
-				for(var i in inns){
-					inns[i].innerHTML = _this.digit;
-				}
+				Array.prototype.forEach.call(before.querySelectorAll('.inn'), function (v){
+					v.innerHTML = _this.digit;
+				})
 				before.classList.add(this.classes.active);
 
 				this.lastDigit = this.digit;
